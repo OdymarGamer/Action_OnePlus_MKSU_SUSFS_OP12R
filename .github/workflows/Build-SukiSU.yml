@@ -9,7 +9,7 @@ on:
       FEIL:
         description: "config_file"
         required: true
-        default: '"oneplus_12r_v'
+        default: 'oneplus_12r_v'
       CPUD:
         description: "cpu_code_name"
         required: true
