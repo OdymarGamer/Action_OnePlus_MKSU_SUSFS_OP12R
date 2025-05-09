@@ -352,14 +352,14 @@ jobs:
       - name: Make AnyKernel3
         run: |
           git clone https://github.com/OdymarGamer/AnyKernel3Suki --depth=1
-          rm -rf ./AnyKernel3/.git
+          rm -rf ./AnyKernel3Suki/.git
 
           dir1="kernel_workspace/kernel_platform/out/msm-kernel-${{ github.event.inputs.CPUD }}-${{ github.event.inputs.BUILD_METHOD }}/dist/"
           dir2="kernel_workspace/kernel_platform/bazel-out/k8-fastbuild/bin/msm-kernel/${{ github.event.inputs.CPUD }}_gki_kbuild_mixed_tree/"
           dir3="kernel_workspace/kernel_platform/out/msm-${{ github.event.inputs.CPUD }}-${{ github.event.inputs.CPUD }}-${{ github.event.inputs.BUILD_METHOD }}/dist/"
           dir4="kernel_workspace/kernel_platform/out/msm-kernel-${{ github.event.inputs.CPUD }}-${{ github.event.inputs.BUILD_METHOD }}/gki_kernel/common/arch/arm64/boot/"
           dir5="kernel_workspace/kernel_platform/out/msm-${{ github.event.inputs.CPUD }}-${{ github.event.inputs.CPUD }}-${{ github.event.inputs.BUILD_METHOD }}/gki_kernel/common/arch/arm64/boot/"
-          target1="./AnyKernel3/"
+          target1="./AnyKernel3Suki/"
           target2="./kernel_workspace/kernel"
 
           # Finding Image FIles
@@ -385,7 +385,7 @@ jobs:
             else
               echo "the-source-file-is-the-same-as-the-target-skipping-copying"
             fi
-            cp "$dir1"Image ./AnyKernel3/Image
+            cp "$dir1"Image ./AnyKernel3Suki/Image
           else
             echo "Image file not found, build may fail"
             exit 1
@@ -461,4 +461,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: AnyKernel3_SukiSUUltra_${{ env.KSUVER }}_${{ steps.feil_clean.outputs.value }}${{ steps.suffix.outputs.value }}
-          path: ./AnyKernel3/*
+          path: ./AnyKernel3Suki/*
