@@ -101,7 +101,7 @@ on:
         type: boolean
         description: "enable_more_zram_configs?"
         required: true
-        default: false
+        default: true
 
 jobs:
   build:
